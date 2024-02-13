@@ -1265,6 +1265,13 @@ curl -o ~/.gnupg/gpg.conf https://raw.githubusercontent.com/drduh/config/master/
 
 See [drduh/YubiKey-Guide](https://github.com/drduh/YubiKey-Guide) to securely generate and store GPG keys.
 
+By default, the password prompt suggests to keep the password of keys in the macOS Keychain. If that is an issue for you, try opening the macOS Keychain, search for "GnuPG" and delete the entry(ies), then run:
+
+```
+defaults write org.gpgtools.pinentry-mac UseKeychain -bool NO
+killall pinentry-mac gpg-agent
+```
+
 Read [online](https://alexcabal.com/creating-the-perfect-gpg-keypair/) [guides](https://security.stackexchange.com/questions/31594/what-is-a-good-general-purpose-gnupg-key-setup) and [practice](https://help.riseup.net/en/security/message-security/openpgp/best-practices) encrypting and decrypting email to yourself and your friends. Get them interested in this stuff!
 
 ## OTR
